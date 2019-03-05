@@ -1,5 +1,5 @@
 <view class="main-container">
-  <view class="box-title">创建打卡任务</view>
+  <view class="box-title">{{id==undefined?"创建打卡任务":"更新打卡任务"}}</view>
   <view class="input-box name">
     <input type="text" value='{{title}}' placeholder="为活动起个名字吧" bindblur="titleChange" />
   </view>
@@ -32,6 +32,6 @@
     </view>
   </view>
   <view class="createM">
-    <button type="primary" size="default" bindtap="createActivity">确认创建</button>
+    <button type="primary" size="default" bindtap="createActivity">保存</button>
   </view>
 </view>
