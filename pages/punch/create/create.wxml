@@ -1,10 +1,10 @@
 <view class="main-container">
   <view class="box-title">创建打卡任务</view>
   <view class="input-box name">
-    <input type="text" placeholder="为活动起个名字吧" bindblur="titleChange" />
+    <input type="text" value='{{title}}' placeholder="为活动起个名字吧" bindblur="titleChange" />
   </view>
   <view class="input-box content">
-    <textarea placeholder="活动描述，也可以激励自己一下~" bindblur="contentChange" />
+    <textarea value='{{content}}' placeholder="活动描述，也可以激励自己一下~" bindblur="contentChange" />
   </view>
 
   <!-- 活動時間 -->

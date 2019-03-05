@@ -2,7 +2,7 @@
 
   <!-- 任务详情 -->
   <view class='box-general {{stateColorClass}}'>
-    <view class='info'>
+    <view class='info' bindtap='modifyActivity'>
       <view class='title'>{{title}}</view>
       <view>{{content}}</view>
       <view>創建于: {{createTime}}</view>

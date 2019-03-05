@@ -21,6 +21,12 @@ Page({
     this.initPunchData(e.id);
   },
 
+  //修改计划
+  modifyActivity:function(e){
+    wx.redirectTo({
+      url: '../create/create?id='+this.data.id,
+    })
+  },
   // 基础数据
   initBaseData(id) {
     var arr = wx.getStorageSync('activity');
@@ -29,7 +35,7 @@ Page({
       arr.forEach((item) => {
 
         if (item.id == id) {
-
+          console.log(item);
           var beginDate = item.beginDate;
           var endDate = item.endDate;
           var iTaskState = util.retTaskState(beginDate, endDate);

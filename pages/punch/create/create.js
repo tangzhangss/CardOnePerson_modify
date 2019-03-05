@@ -9,15 +9,43 @@ Page({
   },
 
   // 加载时初始化一下  时间 
-  onLoad() {
+  onLoad(e) {
+    let id = e.id;
+    if (id != undefined){
+      //更新
+      var arr = wx.getStorageSync('activity');
 
-    var date = this.getDate(this.data.bIncludeToday);
+      if (arr.length) {
+        arr.forEach((item) => {
 
-    this.setData({
-      createTime: util.formatTime(new Date()),
-      beginDate: date.beginDate,
-      endDate: date.endDate
-    })
+          if (item.id == id) {
+
+            var beginDate = item.beginDate;
+            var endDate = item.endDate;
+            var iTaskState = util.retTaskState(beginDate, endDate);
+            var bPunched = util.retPunched(item.id);
+
+            this.setData({
+              id: id,
+              title: item.title,
+              content: item.content,
+              createTime: item.createTime,
+              beginDate: beginDate,
+              endDate: endDate,
+            })
+          }
+        })
+      }
+    } else{
+      var date = this.getDate(this.data.bIncludeToday);
+
+      this.setData({
+        createTime: util.formatTime(new Date()),
+        beginDate: date.beginDate,
+        endDate: date.endDate
+      })
+    } 
+
   },
 
   // 获取 起止时间
@@ -133,25 +161,50 @@ Page({
     // 数据保存
     // 缓存中的数据类型是string  console.log(typeof(arr))
     var arr = wx.getStorageSync('activity');
-    var data = [];
-    var maxID = -1;
-    if (arr.length) {
-      arr.forEach((item, i) => {
-        if (item.id > maxID)
-          maxID = item.id;
-        data.push(item);
+  
+    if(this.data.id==undefined){
+      var data = [];
+      var maxID = -1;
+      if (arr.length) {
+        arr.forEach((item, i) => {
+          if (item.id > maxID)
+            maxID = item.id;
+          data.push(item);
+        })
+      }
+
+      // 新增数据跟在尾巴上_如果新增的话修改不用
+      var id = maxID + 1;
+      this.setData({
+        id: id
       })
+      data.push(this.data);
+
+      wx.setStorageSync('activity', data);
+    }else{
+      //更新
+      if (arr.length) {
+        arr.forEach((item,index) => {
+          
+          if (item.id == this.data.id) {
+             console.log(this.data,index); 
+            arr[index].title = this.data.title;
+            arr[index].content = this.data.content;
+             arr[index].beginDate = this.data.beginDate;
+            arr[index].endDate=this.data.endDate;
+            arr[index].iTaskState = util.retTaskState(this.data.beginDate, this.data.endDate);
+            arr[index].bPunched = util.retPunched(this.data.id);
+             }
+        })
+
+      }
+      wx.setStorageSync('activity', arr);
     }
-
-    // 新增数据跟在尾巴上
-    var id = maxID + 1;
-    this.setData({
-      id: id
-    })
-
-    data.push(this.data);
-    wx.setStorageSync('activity', data);
-
+     
+    console.log(wx.getStorageSync('activity'));
+  
+    var id = id==undefined?this.data.id:id;
+    
     // 页面跳转  关闭当前页面
     wx.redirectTo({
       url: '../detail/detail?id=' + id

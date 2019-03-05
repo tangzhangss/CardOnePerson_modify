@@ -161,7 +161,6 @@ function retTaskState(begin, end) {
 
 // 返回时间对象   str -> object
 function retDateObj(date) {
-
   if (typeof date == 'object') {
     return new Date(date.getFullYear(), date.getMonth(), date.getDate());
   } else {
