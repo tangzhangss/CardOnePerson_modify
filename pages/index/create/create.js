@@ -23,14 +23,19 @@ Page({
 
   submitThreeThings: function(event) {
 
-
     var value = event.detail.value;
     var tempArr = [];
-    console.log(value);
+    
     for (var i = 1; i <= 3; i++) {
-      if (value['item-' + i].trim().length > 0) {
-        tempArr.push(value['item-' + i]);
+      let temp = {};
+      if (value['item-' + i].trim().length > 0){
+        temp.thing = value['item-' + i];
       }
+      if (value['item1-' + i].trim().length > 0) {
+        temp.ach = value['item1-' + i];
+      }
+      temp.complete=false;
+      tempArr.push(temp);
     }
 
     var data = {

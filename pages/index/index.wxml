@@ -7,10 +7,19 @@
     </view>
 
     <view wx:else class='three-wrap'>
-      <block wx:for='{{threeThings}}'>
+      <block wx:for='{{threeThings}}' wx:key="">
         <view class='item'>
           <text class='font18 text text1'>{{index+1}}</text>
-          <text class='font18 text text2'>{{item}}</text>
+          <text class='font18 text text2'>{{item.thing}}</text>
+          <!-- <text class='font10 text text2'>成就值:{{item.ach}}</text> -->
+          <view wx:if="{{!item.complete}}" class='op' bindtap='complete' data-index="{{index}}">
+             <view class='complete'>完成</view>
+             可获得{{item.ach}}点成就
+          </view>
+          <view wx:else class='op co'>
+             <view class='complete'>已完成</view>
+             已获得{{item.ach}}点成就
+          </view>
         </view>
       </block>
     </view>

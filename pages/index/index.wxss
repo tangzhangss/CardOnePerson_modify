@@ -10,6 +10,7 @@
 }
 
 .three-wrap .item {
+  position: relative;
   display: flex;
   align-items: center;
   padding: 20rpx 0;
@@ -47,6 +48,22 @@
 
 .three-wrap .item .text:first-child {
   font-weight: bold;
+}
+.op{
+  font-size: 25rpx;
+  text-align: center;
+  color: white;
+  margin-right: 20rpx;
+}
+.op view{
+  font-size: 40rpx;
+  padding: 10rpx 20rpx;
+  background-color: rgb(136, 228, 113);
+  margin:10rpx auto;
+  border-radius: 10rpx;
+}
+.co{
+  color: red;
 }
 
 .three-wrap .meta {

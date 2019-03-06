@@ -6,5 +6,8 @@ input {
   border: 1rpx solid #ddd;
   color: #666;
 }
-
+.ach{
+   height: 70rpx;
+  line-height: 70rpx;
+}
 
