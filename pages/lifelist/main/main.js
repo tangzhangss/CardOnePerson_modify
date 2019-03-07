@@ -18,7 +18,6 @@ Page({
     bHideDesc: false,
     strText: '显示描述详情'
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -161,9 +160,9 @@ Page({
     let achValue = parseInt(prevVaule == '' ? 0 : prevVaule);
 
     if (state == 0){
-      achValue = achValue - parseInt(ach);
-    }else{
       achValue = achValue + parseInt(ach);
+    }else{
+      achValue = achValue - parseInt(ach);
     }
 
     wx.setStorageSync("achValue", achValue);
