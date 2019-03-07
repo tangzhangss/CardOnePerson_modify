@@ -10,6 +10,10 @@
       <input name='title'></input>
     </view>
     <view class='box'>
+      <text class='text'>消耗成就值点数</text>
+      <input name='ach'></input>
+    </view>
+    <view class='box'>
       <text class='text'>描述</text>
       <textarea name='desc'></textarea>
     </view>

@@ -24,10 +24,11 @@
         <tags tags='{{tags}}' curTag='{{curTag}}' bind:showAll='showAll' bind:showCateContent='showCateContent' />
         
         <view class='list list-all' hidden="{{curTag!='全部'}}">
-          <block wx:for='{{allList}}'>
+          <block wx:for='{{allList}}' wx:key="">
             <view class='tag'>{{index}}</view>
             <block wx:for='{{item}}'>
               <todo item='{{item}}' bind:onDelete='onDelete' bind:onEditEnd='onEditEnd' bind:onChangeDoneState='onChangeDoneState'/>
+              <view class='mark'>消耗成就值:{{item.ach}}</view>
             </block>
           </block>
         </view>

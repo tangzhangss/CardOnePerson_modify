@@ -34,8 +34,8 @@
       {
         "pagePath": "pages/ach/ach",
         "text": "统计",
-        "iconPath": "/img/tab/things.png",
-        "selectedIconPath": "/img/tab/things_hl.png"
+        "iconPath": "/img/tab/tongji.png",
+        "selectedIconPath": "/img/tab/tongji.png"
       },
       {
         "pagePath": "pages/punch/main/main",

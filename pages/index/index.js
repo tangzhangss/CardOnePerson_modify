@@ -12,10 +12,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.initData()
+    this.initData();
   },
   onShow: function(options) {
     this.initData();
+
+    this.setData({
+      achValue: wx.getStorageSync("achValue") == '' ?0: wx.getStorageSync("achValue")
+    })
   },
 
   initData: function() {
@@ -63,7 +67,7 @@ Page({
 
     console.log("成就值改变", index, ach, wx.getStorageSync("achValue"), wx.getStorageSync("achLine"));
 
-    this.onLoad();  
+    this.onShow();  
   },
   onAddThreeThings: function(event) {
 

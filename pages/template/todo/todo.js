@@ -58,10 +58,11 @@ Component({
     onChangeDoneState: function(event) {
 
       var dataset = event.currentTarget.dataset;
-
+     
       var myEventDetail = {
         id: dataset.id,
-        state: dataset.state
+        state: dataset.state,
+        ach:dataset.ach
       };
       this.triggerEvent('onChangeDoneState', myEventDetail, {})
     },

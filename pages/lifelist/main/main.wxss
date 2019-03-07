@@ -38,3 +38,13 @@
   font-size: 16px;
   color: #f00;
 }
+.mark{
+  margin-left: 40rpx;
+  color: rgb(148, 132, 132);
+  font-size: 20rpx; 
+  padding:10rpx 20rpx;
+  background-color: #eee;
+  border-radius: 10rpx;
+  display: inline-block;
+  text-align: left;
+}

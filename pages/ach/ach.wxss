@@ -4,5 +4,14 @@
   margin: 50rpx 0;
   width:300px;
  height:250px;
-
+}
+.title{
+  margin: 50rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+.mark{
+  font-size: 35rpx;
+  color: #ccc;
+  margin-left: 50rpx;
 }

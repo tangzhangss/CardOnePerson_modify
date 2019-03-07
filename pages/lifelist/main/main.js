@@ -121,7 +121,8 @@ Page({
             id: item.id,
             title: item.title,
             desc: item.desc,
-            state: item.state
+            state: item.state,
+            ach:item.ach
           })
         }
       }
@@ -152,6 +153,29 @@ Page({
 
     wx.setStorageSync('lifeList', OriginList);
     this.initLifeList(this.data.curTag);
+
+    //成就值曲线减
+    let ach = event.detail.ach;
+    console.log(event);
+    let prevVaule = wx.getStorageSync("achValue");
+    let achValue = parseInt(prevVaule == '' ? 0 : prevVaule);
+
+    if (state == 0){
+      achValue = achValue - parseInt(ach);
+    }else{
+      achValue = achValue + parseInt(ach);
+    }
+
+    wx.setStorageSync("achValue", achValue);
+
+    let achLine = wx.getStorageSync("achLine") == '' ? [] : wx.getStorageSync("achLine");
+
+    if (achLine.length < 1) {
+      achLine.push(0);
+    }
+    achLine.push(achValue);
+    wx.setStorageSync('achLine', achLine);
+    
   },
 
   // 显示全部内容

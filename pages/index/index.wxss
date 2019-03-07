@@ -71,3 +71,15 @@
   line-height: 3;
   color: #666;
 }
+.mark{
+  text-align: center;
+  font-weight: 600;
+  position: absolute;
+  bottom: 15vh;
+  left: 30vw;
+}
+.mark span{
+  color: orange;
+  font-size: 50rpx;
+  margin: 0 20rpx;
+}

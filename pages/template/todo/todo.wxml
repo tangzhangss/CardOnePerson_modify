@@ -1,7 +1,7 @@
 <view class="list-item {{item.state == 2?'done':''}}">
 
   <view class='item-box'>
-    <view class='checkbox' data-id='{{item.id}}' data-state='{{item.state}}' bindtap='onChangeDoneState'>
+    <view class='checkbox' data-id='{{item.id}}' data-state='{{item.state}}' data-ach='{{item.ach}}' bindtap='onChangeDoneState'>
       <image src="{{item.state == 2?'/img/icon/done.gif':'/img/icon/undone.gif'}}" class="checkbox" />
     </view>
     <text class='name' bindtap='onShowDesc'>{{item.title}}</text>

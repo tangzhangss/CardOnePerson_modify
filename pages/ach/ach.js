@@ -26,7 +26,18 @@ Page({
       data: data
     }
   },
-  onLoad: function (e) {
+  onShow: function (e) {
+    let achLine = wx.getStorageSync("achLine") == '' ? [] : wx.getStorageSync("achLine");
+
+    this.setData({
+      achLine: achLine
+    })
+    if(achLine.length < 1){
+      
+      return false;
+    }
+
+
     var windowWidth = 320;
     try {
       var res = wx.getSystemInfoSync();
@@ -44,7 +55,7 @@ Page({
       // background: '#f5f5f5',
       series: [{
         name: '成就值:',
-        data: wx.getStorageSync("achLine"),
+        data: achLine,
         format: function (val, name) {
           return val;
         }

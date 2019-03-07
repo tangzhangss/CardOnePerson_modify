@@ -1,5 +1,6 @@
 <!--pages/ach/ach.wxml-->
 <view class="container">
+    <view class='title'>我的成就值变化曲线</view>
+    <view class='mark' wx:if="{{achLine.length < 1}}">暂未生成成就值曲线</view>
     <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
-   
 </view>

@@ -80,6 +80,7 @@ Page({
       id: id,
       tag: value.tags,
       title: value.title,
+      ach:value.ach,
       desc: value.desc,
       createTime: new Date(),
       state: 0
