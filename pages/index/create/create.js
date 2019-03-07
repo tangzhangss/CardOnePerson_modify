@@ -33,10 +33,14 @@ Page({
       }
       if (value['item1-' + i].trim().length > 0) {
         temp.ach = value['item1-' + i];
+      }else{
+        temp.ach = 0;
       }
       temp.complete=false;
       tempArr.push(temp);
     }
+
+    console.log(tempArr);
 
     var data = {
       time: new Date(),

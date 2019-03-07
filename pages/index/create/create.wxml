@@ -6,7 +6,7 @@
       <view class='box'>
         <text>第 {{item}} 个件事：</text>
         <input name='item-{{item}}' value="{{threeThings?threeThings[index].thing:''}}">啥？</input>
-        <input class="ach" name='item1-{{item}}' placeholder='可获得成就值' value="{{threeThings?threeThings[index].ach:''}}"></input>
+        <input type='number' class="ach" name='item1-{{item}}' placeholder='可获得成就值' value="{{threeThings?threeThings[index].ach:''}}"></input>
       </view>
     </block>
 
