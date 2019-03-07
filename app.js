@@ -6,8 +6,8 @@ App({
     logs.unshift(Date.now());
     wx.setStorageSync('logs', logs);
 
-    let achVaule = wx.getStorageSync("achValue") == null ? '' : wx.getStorageSync("achValue");
-    wx.setStorageSync('achVaule', achVaule);
+    let achValue = !wx.getStorageSync("achValue")? '' : wx.getStorageSync("achValue");
+    wx.setStorageSync('achValue', achValue);
 
     // 获取用户信息
     wx.getSetting({
